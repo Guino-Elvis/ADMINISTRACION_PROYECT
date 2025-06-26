@@ -1,2 +1,0 @@
-<h1>404</h1>
-<p>Esta pagina no existe. Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque suscipit laudantium, vero, velit accusantium ex non consectetur dolorem quod optio libero iure veritatis, nisi mollitia repellat aliquid architecto enim! Neque!</p>
