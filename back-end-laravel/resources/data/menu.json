@@ -1,0 +1,60 @@
+[
+  {
+    "icon": "ph-house",
+    "name": "Dashboard",
+    "roles": [
+      "Administrador"
+    ],
+    "route": "/welcome"
+  },
+  {
+    "icon": "ph-gear",
+    "name": "Administracion",
+    "submenu": [
+      {
+        "icon": "ph-buildings",
+        "name": "Compañias",
+        "roles": [
+          "Administrador",
+          "Empresa"
+        ],
+        "route": "/company"
+      },
+      {
+        "icon": "ph-user-plus",
+        "name": "Usuarios",
+        "roles": [
+          "Administrador",
+          "Empresa"
+        ],
+        "route": "/administration-user"
+      }
+      
+    ]
+  },
+  {
+    "icon": "ph-gear",
+    "name": "Project",
+    "submenu": [
+      {
+        "icon": "ph-buildings",
+        "name": "Project",
+        "roles": [
+          "Administrador",
+          "Empresa"
+        ],
+        "route": "/project"
+      },
+      {
+        "icon": "ph-user-plus",
+        "name": "Users",
+        "roles": [
+          "Administrador",
+          "Empresa"
+        ],
+        "route": "/administration-user-project"
+      }
+    ]
+  }
+ 
+]

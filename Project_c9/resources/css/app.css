@@ -1,7 +1,0 @@
-@import './login.css'; /* 👈 Esto debe ir primero */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-[x-cloak] {
-    display: none;
-}

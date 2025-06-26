@@ -1,0 +1,94 @@
+<div class="p-4">
+    <form class="flex flex-col gap-6 p-2" [formGroup]="administrationUserProjectForm" (ngSubmit)="handleSubmit()">
+
+        <div class="flex flex-col gap-2 p-2 max-h-[65vh] overflow-x-auto">
+            <label class="font-bold text-[#283943] uppercase"> Nombre </label>
+            <input type="text" placeholder="Name *"
+                class="p-2 border-[#0061A0] focus:border-[#0061A0] border-b-[0.2rem] focus:border-b-[0.2rem] rounded focus:outline-none focus:ring-0"
+                formControlName="name"
+                [ngClass]="{'border-red-500': administrationUserProjectForm.get('name')?.invalid && administrationUserProjectForm.get('name')?.touched}" />
+            <span
+                *ngIf="administrationUserProjectForm.get('name')?.invalid && administrationUserProjectForm.get('name')?.touched"
+                class="text-red-500">
+                name social es obligatorio.
+            </span>
+
+            <label class="font-bold text-[#283943] uppercase"> Email </label>
+            <input type="email" placeholder="Email *"
+                class="p-2 border-[#0061A0] focus:border-[#0061A0] border-b-[0.2rem] focus:border-b-[0.2rem] rounded focus:outline-none focus:ring-0"
+                formControlName="email"
+                [ngClass]="{'border-red-500': administrationUserProjectForm.get('email')?.invalid && administrationUserProjectForm.get('email')?.touched}" />
+            <span
+                *ngIf="administrationUserProjectForm.get('email')?.invalid && administrationUserProjectForm.get('email')?.touched"
+                class="text-red-500">
+                email es obligatorio.
+            </span>
+
+            <label class="font-bold text-[#283943] uppercase"> Password </label>
+            <input type="text" placeholder="New Password *"
+                class="p-2 border-[#0061A0] focus:border-[#0061A0] border-b-[0.2rem] focus:border-b-[0.2rem] rounded focus:outline-none focus:ring-0"
+                formControlName="password"
+                [ngClass]="{'border-red-500': administrationUserProjectForm.get('password')?.invalid && administrationUserProjectForm.get('password')?.touched}" />
+            <span
+                *ngIf="administrationUserProjectForm.get('password')?.invalid && administrationUserProjectForm.get('password')?.touched"
+                class="text-red-500">
+                Password es obligatorio.
+            </span>
+
+            <label class="font-bold text-[#283943] uppercase"> Proyecto </label>
+            <select
+                class="p-2 border-[#0061A0] focus:border-[#0061A0] border-b-[0.2rem] focus:border-b-[0.2rem] rounded focus:outline-none focus:ring-0 w-full"
+                formControlName="project_id"
+                [ngClass]="{'border-red-500': administrationUserProjectForm.get('project_id')?.invalid && administrationUserProjectForm.get('project_id')?.touched}">
+                <option *ngFor="let project of projectOptions" [value]="project.id">
+                    {{ project.name }}
+                </option>
+            </select>
+            <span
+                *ngIf="administrationUserProjectForm.get('project_id')?.invalid && administrationUserProjectForm.get('project_id')?.touched"
+                class="text-red-500">
+                project es obligatoria.
+            </span>
+
+            <label class="font-bold text-[#283943] uppercase"> Estado </label>
+            <select
+                class="p-2 border-[#0061A0] focus:border-[#0061A0] border-b-[0.2rem] focus:border-b-[0.2rem] rounded focus:outline-none focus:ring-0"
+                formControlName="status"
+                [ngClass]="{'border-red-500': administrationUserProjectForm.get('status')?.invalid && administrationUserProjectForm.get('status')?.touched}">
+                <option *ngFor="let option of statusOptions" [value]="option.id">{{ option.nombre }}</option>
+            </select>
+            <span
+                *ngIf="administrationUserProjectForm.get('status')?.invalid && administrationUserProjectForm.get('status')?.touched"
+                class="text-red-500">
+                El estado es obligatorio.
+            </span>
+
+            <label class="font-bold text-[#283943] uppercase"> ROL </label>
+            <select
+                class="p-2 border-[#0061A0] focus:border-[#0061A0] border-b-[0.2rem] focus:border-b-[0.2rem] rounded focus:outline-none focus:ring-0"
+                formControlName="role"
+                [ngClass]="{'border-red-500': administrationUserProjectForm.get('role')?.invalid && administrationUserProjectForm.get('role')?.touched}">
+
+                <option *ngFor="let option of roleOptions" [value]="option.name">
+                    {{ option.name }}
+                </option>
+            </select>
+            <span
+                *ngIf="administrationUserProjectForm.get('role')?.invalid && administrationUserProjectForm.get('role')?.touched"
+                class="text-red-500">
+                El role es obligatorio.
+            </span>
+
+        </div>
+
+        <div class="flex justify-between px-2 w-12/12">
+            <button class="bg-[#0061A0] py-2 rounded w-5/12 text-white" type="submit"
+                [disabled]="!administrationUserProjectForm.valid"
+                [ngClass]="{'opacity-50 cursor-not-allowed': !administrationUserProjectForm.valid}">
+                {{ administrationUserProject ? 'Actualizar' : 'Crear' }}
+            </button>
+            <button class="py-2 border border-gray-300 rounded w-5/12" (click)="onClose.emit()"
+                type="button">Cancelar</button>
+        </div>
+    </form>
+</div>
